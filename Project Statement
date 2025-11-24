@@ -1,0 +1,49 @@
+Project Statement
+
+Problem statement
+
+Managing a library manually is often a chaotic experience. Relying on physical ledgers or pen-and-paper tracking leads to human error, lost inventory, and frustration when trying to locate a specific book. Without a digital system, librarians struggle to keep track of who has borrowed what, and readers waste time searching for books that might not even be on the shelf. This project solves that disconnect by replacing manual logs with a clean, automated digital system that keeps everything organized and accessible in real-time.
+
+Scope of the project
+
+This project is designed to bridge the gap between physical books and digital management. The goal is to create a lightweight, Python-based Command Line Interface (CLI) that acts as the "brain" of the library. It simulates a database environment using local storage to handle the day-to-day operations of a library.
+
+The project focuses on:
+
+    Simplifying Access: Creating secure, distinct spaces for admins and readers to interact with the system.
+
+    Organizing Inventory: Making it effortless to catalog new arrivals and sort them by price or location.
+
+    Streamlining Circulation: Automating the "check-out" and "check-in" process so books are tracked accurately from shelf to reader and back again.
+
+Target users
+
+This application is built for two specific groups of people:
+
+1. The Administrators (Librarians)
+
+    These are the caretakers of the collection. They need a powerful tool to manage inventory, ensure security, and keep the library organized without wading through paperwork.
+
+2. The Readers (End Users)
+
+    These are students or members looking for their next read. They need a simple, hassle-free way to find books, check availability, and borrow items without complex procedures.
+
+High-level features
+
+For Administrators
+
+    Gatekeeper Security: A secure login system ensures that only authorized staff can modify the library's sensitive records.
+
+    Collection Growth: Admins can easily expand the library by adding new books with all necessary details—from the author's name to the specific shelf number.
+
+    Smart Search: Instead of scanning shelves manually, admins can instantly locate any book using its serial number, title, author, or even its price tag.
+
+    Snapshot Views: The system allows admins to filter and view books based on specific criteria, like seeing everything on "Shelf 5" or books within a certain budget.
+
+For Users
+
+    Easy Onboarding: New readers can sign up instantly through the console, creating their own personal access to the library.
+
+    Flexible Borrowing: Users can search for and issue books in the way that makes sense to them—whether they know the specific serial number or just the author's name.
+
+    Simple Returns: When they are done reading, the system handles the return process smoothly, verifying the user's identity and updating the records instantly.
