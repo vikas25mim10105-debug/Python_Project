@@ -10,8 +10,6 @@ The application features a Dual-Login System:
 
     User Module: For students/patrons to register, log in, and perform book transactions (Issue, Return).
 
-Data Persistence is handled via In-Memory Data Structures (Python Dictionaries and Lists), allowing for fast runtime operations without the need for an external SQL database.
-
 2. Features
 
 The system provides granular control over library operations through the following features:
