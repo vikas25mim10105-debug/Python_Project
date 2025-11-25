@@ -1,24 +1,62 @@
-# Library Management System
+Library Management System (LMS)
 
-Project Title
+1. Overview of the Project
 
-Library Management System (CLI)
+This project is a modular, console-based application designed to simulate the digital management of a library's daily operations. It acts as a central database for managing book records and user transactions. The system is built on Modular Programming principles, separating logic into five distinct Python files (main.py, login.py, modify_Book.py, issue_return.py, view.py) to ensure code readability and maintainability.
 
-Overview of the Project
+The application features a Dual-Login System:
 
-This project is a console-based application written in Python designed to manage the day-to-day operations of a library. It features a dual-login system that separates administrative privileges from standard user functionalities. The system allows administrators to manage the book inventory (add, view, search) and allows users to register, issue, and return books. It utilizes Python data structures (dictionaries and lists) to handle data efficiently in runtime.
+    Administrative Module: For librarians to manage the inventory (Add, Search, View).
 
-Features
+    User Module: For students/patrons to register, log in, and perform book transactions (Issue, Return).
 
-The system is divided into two primary modules:
+Data Persistence is handled via In-Memory Data Structures (Python Dictionaries and Lists), allowing for fast runtime operations without the need for an external SQL database.
 
-1. Administrative Module
+2. Features
 
-    Secure Login: Access is restricted via ID and Password authentication.
+The system provides granular control over library operations through the following features:
 
-    Add Books: Admins can add new books with details including Serial Number, Name, Author, Copies, Price, and Shelf Number.
+ Administrative Features
 
-    Search Books: Advanced search functionality allowing lookups by:
+    Secure Authentication: The system enforces security with a hardcoded Admin ID (2345) and Password (pass@pass). It includes a security counter that locks the login attempt after 4 failed tries.
+
+    Inventory Management (Add Books): Admins can batch-add books. For every book, the system captures detailed metadata:
+
+        Serial Number (Unique ID)
+
+        Book Name
+
+        Author Name
+
+        Number of Copies
+
+        Price
+
+        Shelf Number ("Self no")
+
+    Advanced Search Engine: Admins can locate books using five specific criteria:
+
+        By Serial Number (ser)
+
+        By Book Name (name)
+
+        By Author (author)
+
+        By Price (price)
+
+        By Shelf Location (self)
+
+    Filtered Data Viewing:
+
+        View by Shelf: Displays all books located on a specific library shelf.
+
+        View by Price Range: Displays books that fall within a user-defined price bracket (Lower Limit to Upper Limit).
+
+ User Features
+
+    User Registration: New users can sign up by creating a numeric User Name and a Password. This is stored temporarily in the runtime session.
+
+    Book Issuing System: Users can search for and issue books. The system displays a confirmation message: "You have to return it in 1 week either fine will be charged". Issuing can be done by:
 
         Serial Number
 
@@ -26,75 +64,111 @@ The system is divided into two primary modules:
 
         Author Name
 
-        Price
+    Book Return System: A validation mechanism checks the username against the user who issued the book before confirming the return.
 
-        Shelf ("Self") Number
+3. Technologies/Tools Used
 
-    View Inventory: Admins can filter views by Shelf Number or a specific Price Range.
+    Primary Language: Python 3.x
 
-2. User Module
+    User Interface: Command Line Interface (CLI)
 
-    Registration & Login: New users can register with a numeric username and password, or log in with existing credentials.
+    Key Python Concepts Implemented:
 
-    Issue Books: Users can issue books by searching for the Serial Number, Name, or Author. The system tracks who issued the book.
+        Data Structures: Heavily utilizes Dictionaries ({key: value}) to map Book IDs to their details and Lists ([]) to store book attributes.
 
-    Return Books: A simple interface for users to return borrowed books.
+        Modular Programming: Logic is split across login, modify_Book, issue_return, and view modules.
 
-Technologies/Tools Used
+        Control Flow: Uses while True loops for continuous menus and for loops for login attempt counters.
 
-    Programming Language: Python 3.x
+        Exception Handling: Input validation for integer fields (Serial No, Price).
 
-    Interface: Command Line Interface (CLI) / Console
+4. Steps to Install & Run the Project
 
-    Data Storage: Python Dictionaries and Lists (In-memory storage)
+    Prerequisites:
 
-Steps to Install & Run the Project
+        Install Python (Version 3.6 or higher recommended).
 
-    Prerequisites: Ensure Python (version 3.0 or higher) is installed on your system.
+    File Setup:
 
-    Download Files: Ensure all the following project files are in the same folder:
+        Create a folder named Library_System.
 
-        main.py
+        Download and place the following 5 files inside that folder:
 
-        login.py
+            main.py (The entry point)
 
-        view.py
+            login.py (Authentication logic)
 
-        modify_Book.py
+            modify_Book.py (Add/Search logic)
 
-        issue_return.py
+            view.py (Display logic)
 
-    Run the Application: Open your terminal or command prompt, navigate to the project folder, and run the following command:
-    Bash
+            issue_return.py (Transaction logic)
 
-    python main.py
+    Execution:
 
-Instructions for Testing
+        Open Terminal (Mac/Linux) or Command Prompt (Windows).
 
-Follow these steps to test the various features of the application:
+        Navigate to the folder: cd path/to/Library_System
 
-1. Administrative Testing:
+        Run the application:
+        Bash
 
-    Run the program and type adm for Administrative Login.
+        python main.py
 
-    Credentials: Use the hardcoded admin credentials found in the source code:
+5. Instructions for Testing
 
-        ID: 2345
+Use the following test data and steps to verify all functionalities:
 
-        Password: pass@pass
+Scenario A: Admin Workflow
 
-    Once logged in, try adding a book (type add) or viewing books (type view).
+    Run main.py.
 
-2. User Testing:
+    Enter adm when asked for login type.
 
-    Run the program and type user for User Login.
+    Login: Enter ID 2345 and Password pass@pass.
 
-    Registration: Type register to create a new account (Use numbers for the username).
+    Action - Add Book:
 
-    Login: Type login. You can use your newly registered account or the default test account:
+        Type add.
+
+        Enter number of books: 1.
+
+        Enter details: Serial 999, Name PythonBasics, Author Guido, Copies 5, Price 500, Shelf 10.
+
+    Action - View:
+
+        Type view, then select price.
+
+        Enter Upper Limit 600, Lower Limit 400.
+
+        Result: You should see the "PythonBasics" book you just added.
+
+Scenario B: User Workflow
+
+    Run main.py (or restart if ended).
+
+    Enter user when asked for login type.
+
+    Login: Use the pre-registered test account:
 
         ID: 2343
 
         Password: shayam
 
-    Select issue to borrow a book (e.g., enter Serial Number 123 for "Cosmos").
+    Action - Issue Book:
+
+        Type issue.
+
+        Enter Name Shayam.
+
+        Choose ser (Serial Number) and enter 123.
+
+        Result: System confirms "Cosmos book got issued to Shayam".
+
+    Action - Return Book:
+
+        Type return.
+
+        Enter Name Shayam.
+
+        Result: System confirms "Book returned".
