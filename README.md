@@ -1,22 +1,24 @@
-Library Management System
+# Library Management System
 
-Overview of the project
+Project Title
 
-This is a Python-based console application designed to digitize the management of a library system. The application provides a robust menu-driven interface that facilitates two distinct roles: Administrators and Users.
+Library Management System (CLI)
 
-The system utilizes local data structures (dictionaries) to store book records and user information efficiently, allowing for real-time addition, searching, issuing, and returning of books without the need for an external database.
+Overview of the Project
+
+This project is a console-based application written in Python designed to manage the day-to-day operations of a library. It features a dual-login system that separates administrative privileges from standard user functionalities. The system allows administrators to manage the book inventory (add, view, search) and allows users to register, issue, and return books. It utilizes Python data structures (dictionaries and lists) to handle data efficiently in runtime.
 
 Features
 
-The project is divided into two functional modules:
+The system is divided into two primary modules:
 
-Administrative Module
+1. Administrative Module
 
-    Authentication: Secure login system specifically for library administrators.
+    Secure Login: Access is restricted via ID and Password authentication.
 
-    Inventory Management: Add new books with detailed attributes including Serial Number, Name, Author, Copies, Price, and Shelf Number.
+    Add Books: Admins can add new books with details including Serial Number, Name, Author, Copies, Price, and Shelf Number.
 
-    Search Functionality: Locate books using various filters:
+    Search Books: Advanced search functionality allowing lookups by:
 
         Serial Number
 
@@ -26,64 +28,73 @@ Administrative Module
 
         Price
 
-        Shelf Number.
+        Shelf ("Self") Number
 
-    Database Viewing: View specific subsets of books based on shelf location or price range.
+    View Inventory: Admins can filter views by Shelf Number or a specific Price Range.
 
-User Module
+2. User Module
 
-    Session Management: Options to Login with existing credentials or Register as a new user.
+    Registration & Login: New users can register with a numeric username and password, or log in with existing credentials.
 
-    Book Issuance: Issue books by searching for Serial Number, Name, or Author.
+    Issue Books: Users can issue books by searching for the Serial Number, Name, or Author. The system tracks who issued the book.
 
-    Return System: functionality to return books and validate the return against the issuer's name.
+    Return Books: A simple interface for users to return borrowed books.
 
-Technologies/tools used
+Technologies/Tools Used
 
     Programming Language: Python 3.x
 
-    Interface: Command Line Interface (CLI)
+    Interface: Command Line Interface (CLI) / Console
 
-    Data Structure: Python Dictionaries (Hash Maps) and Lists
+    Data Storage: Python Dictionaries and Lists (In-memory storage)
 
-Steps to install & run the project
+Steps to Install & Run the Project
 
-    Prerequisites: Ensure Python is installed on your system.
+    Prerequisites: Ensure Python (version 3.0 or higher) is installed on your system.
 
-    File Organization: Download the source code and ensure the following files are located in the same directory:
+    Download Files: Ensure all the following project files are in the same folder:
 
         main.py
 
         login.py
 
+        view.py
+
         modify_Book.py
 
         issue_return.py
 
-        view.py
-
-    Execution: Open a terminal or command prompt, navigate to the project directory, and execute the main script:
+    Run the Application: Open your terminal or command prompt, navigate to the project folder, and run the following command:
     Bash
 
     python main.py
 
-Instructions for testing
+Instructions for Testing
 
-To test the full functionality of the application, use the predefined credentials and sample data embedded in the source code.
+Follow these steps to test the various features of the application:
 
-1. Login Credentials
+1. Administrative Testing:
 
-Role	Menu Selection	User ID	Password	Source
-[Administrator	adm	2345	pass@pass	]
-[User	user	2343	shayam]	
+    Run the program and type adm for Administrative Login.
 
-    Note: You may also select the register option in the User menu to create a temporary user ID and password for the current session.
+    Credentials: Use the hardcoded admin credentials found in the source code:
 
-2. Sample Data
+        ID: 2345
 
-The system initializes with three book records to facilitate immediate testing of Search and Issue features:
-[Serial No.,	Book Name,	                   Author,	           Copies,	  Price, self]
-[123,        Cosmos,                        Carl Sagan,         3,          500,      7]
-[234,        A Brief History of Time,       Stephen Hawking,    4,         300,       8]
-[345,        A Brief History of Humankind,  Yuval Noah Harari,  7,         450,       5]
-Refer to main.py for the dictionary initialization
+        Password: pass@pass
+
+    Once logged in, try adding a book (type add) or viewing books (type view).
+
+2. User Testing:
+
+    Run the program and type user for User Login.
+
+    Registration: Type register to create a new account (Use numbers for the username).
+
+    Login: Type login. You can use your newly registered account or the default test account:
+
+        ID: 2343
+
+        Password: shayam
+
+    Select issue to borrow a book (e.g., enter Serial Number 123 for "Cosmos").
